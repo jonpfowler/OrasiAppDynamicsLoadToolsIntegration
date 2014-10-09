@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="PC" resourceRoot="" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://pctrappprodvh1" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>http://pctrappprodvh1</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Rest" path="/LoadTest/rest">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Rest" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+          <con:element xmlns:xht="http://www.w3.org/1999/xhtml">xht:html</con:element>
+        </con:representation>
+        <con:request name="Request 1" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://pctrappprodvh1</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://pctrappprodvh1/LoadTest/rest</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://pctrappprodvh1" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>http://pctrappprodvh1</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Authenticate" path="/LoadTest/rest/authentication-point/authenticate">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Authenticate" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Authorization</con:name>
+            <con:value>Basic QWxleGdpcjpDYW1waW5nNTk=</con:value>
+            <con:style>HEADER</con:style>
+            <con:default>Basic QWxleGdpcjpDYW1waW5nNTk=</con:default>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType>application/xml; charset=utf-8</con:mediaType>
+          <con:status>400 500</con:status>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Exception</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request 1" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://pctrappprodvh1</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://pctrappprodvh1/LoadTest/rest/authentication-point/authenticate</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+          <con:parameterOrder>
+            <con:entry>Authorization</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://pctrappprodvh1" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>http://pctrappprodvh1</con:endpoint>
+    </con:endpoints>
+    <con:resource name="12" path="/LoadTest/rest/domains/DEFAULT/projects/ORASI_TEST/tests/41">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="12" method="PUT">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="false">
+            <con:name>Cookie</con:name>
+            <con:value>LWSSO_COOKIE_KEY=FLTPuwSNNac_Qps7MVPzmjxxvf8zCcpRP9d51DXQ5Xut9Q7t5tsbWwwZUs3Ezk4uVQE3lF1oUD0bXJaTG9Z6Kg..;QCSession={QCSessionCookie}; </con:value>
+            <con:style>HEADER</con:style>
+            <con:default>LWSSO_COOKIE_KEY=FLTPuwSNNac_Qps7MVPzmjxxvf8zCcpRP9d51DXQ5Xut9Q7t5tsbWwwZUs3Ezk4uVQE3lF1oUD0bXJaTG9Z6Kg..;QCSession={QCSessionCookie}; </con:default>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+          <con:parameter required="false">
+            <con:name>Content-Type</con:name>
+            <con:value>application/xml </con:value>
+            <con:style>HEADER</con:style>
+            <con:default>application/xml </con:default>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/xml</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/xml; charset=utf-8</con:mediaType>
+          <con:status>400 500 404</con:status>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Exception</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+          <con:element xmlns:xht="http://www.w3.org/1999/xhtml">xht:html</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element xmlns:ns="http://pctrappprodvh1/LoadTest/rest/domains/DEFAULT/projects/ORASI_TEST/tests/12">ns:Fault</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/xml; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Test</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Test</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/html; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>html</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>text/xml</con:mediaType>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Test</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/xml; charset=utf-8</con:mediaType>
+          <con:status>400</con:status>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Exception</con:element>
+        </con:representation>
+        <con:request name="Request 1" mediaType="application/x-www-form-urlencoded" postQueryString="true">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://pctrappprodvh1</con:endpoint>
+          <con:request>
+            <![CDATA[<Test xmlns="http://www.hp.com/PC/REST/API">
+   <ID>41</ID>
+   <Name>APITest</Name>
+   <CreatedBy>alexgir</CreatedBy>
+   <LastModified>7/9/2014 2:22:49 PM</LastModified>
+   <TestFolderPath>Subject\Example_Project_Name\Release_1.0\Scenarios</TestFolderPath>
+   <Content>
+      <WorkloadType>
+         <Type>real-world</Type>
+         <SubType>by test</SubType>
+         <VusersDistributionMode>by number</VusersDistributionMode>
+      </WorkloadType>
+      <LGDistribution>
+         <Type>all to each group</Type>
+      </LGDistribution>
+      <TotalVusers>0</TotalVusers>
+      <Groups/>
+      <Scheduler>
+         <Actions>
+            <Action>
+               <Initialize Type="just before vuser runs"/>
+            </Action>
+            <Action>
+               <StartVusers Type="gradually">
+                  <Vusers>10</Vusers>
+                  <Ramp>
+                     <Vusers>2</Vusers>
+                     <TimeInterval>
+                        <Hours>0</Hours>
+                        <Minutes>0</Minutes>
+                        <Seconds>15</Seconds>
+                     </TimeInterval>
+                  </Ramp>
+               </StartVusers>
+            </Action>
+            <Action>
+               <Duration Type="run for">
+                  <TimeInterval>
+                     <Hours>0</Hours>
+                     <Minutes>5</Minutes>
+                     <Seconds>0</Seconds>
+                  </TimeInterval>
+               </Duration>
+            </Action>
+            <Action>
+               <StopVusers Type="gradually">
+                  <Ramp>
+                     <Vusers>5</Vusers>
+                     <TimeInterval>
+                        <Hours>0</Hours>
+                        <Minutes>0</Minutes>
+                        <Seconds>30</Seconds>
+                     </TimeInterval>
+                  </Ramp>
+               </StopVusers>
+            </Action>
+         </Actions>
+      </Scheduler>
+   </Content>
+</Test>]]>
+          </con:request>
+          <con:originalUri>http://pctrappprodvh1/LoadTest/rest/domains/DEFAULT/projects/ORASI_TEST/tests/12</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <con:entry key="Cookie" value="LWSSO_COOKIE_KEY=FLTPuwSNNac_Qps7MVPzmjxxvf8zCcpRP9d51DXQ5Xut9Q7t5tsbWwwZUs3Ezk4uVQE3lF1oUD0bXJaTG9Z6Kg..;QCSession=MzExMjk7aTBKZkwrUG0wamtCWjB0TzErcVRSdyoqO1BDIFJFU1QgQVBJIENsaWVudDsgOyA.;"/>
+            <con:entry key="Content-Type" value="application/xml"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>Cookie</con:entry>
+            <con:entry>Content-Type</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://pctrappprodvh1" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>http://pctrappprodvh1</con:endpoint>
+    </con:endpoints>
+    <con:resource name="49" path="/LoadTest/rest/domains/DEFAULT/projects/ORASI_TEST/Runs/49">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="49" method="GET">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>Cookie</con:name>
+            <con:value>LWSSO_COOKIE_KEY=FLTPuwSNNac_Qps7MVPzmjxxvf8zCcpRP9d51DXQ5Xut9Q7t5tsbWwwZUs3Ezk4uVQE3lF1oUD0bXJaTG9Z6Kg..;QCSession={QCSessionCookie};</con:value>
+            <con:style>HEADER</con:style>
+            <con:default>LWSSO_COOKIE_KEY=FLTPuwSNNac_Qps7MVPzmjxxvf8zCcpRP9d51DXQ5Xut9Q7t5tsbWwwZUs3Ezk4uVQE3lF1oUD0bXJaTG9Z6Kg..;QCSession={QCSessionCookie};</con:default>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType>application/xml; charset=utf-8</con:mediaType>
+          <con:status>500</con:status>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Exception</con:element>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>text/html</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+          <con:element xmlns:xht="http://www.w3.org/1999/xhtml">xht:html</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/xml; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:api="http://www.hp.com/PC/REST/API">api:Run</con:element>
+        </con:representation>
+        <con:request name="Request 1" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://pctrappprodvh1</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://pctrappprodvh1/LoadTest/rest/domains/DEFAULT/projects/ORASI_TEST/Runs/49</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="Cookie" value="LWSSO_COOKIE_KEY=FLTPuwSNNac_Qps7MVPzmjxxvf8zCcpRP9d51DXQ5Xut9Q7t5tsbWwwZUs3Ezk4uVQE3lF1oUD0bXJaTG9Z6Kg..;QCSession=MzExMjk7aTBKZkwrUG0wamtCWjB0TzErcVRSdyoqO1BDIFJFU1QgQVBJIENsaWVudDsgOyA.;" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>Cookie</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:restMockService port="8080" path="/" host="VH-A0042637">
+    <con:settings/>
+    <con:properties/>
+  </con:restMockService>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+</con:soapui-project>
