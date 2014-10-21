@@ -1,0 +1,10 @@
+<Run xmlns="http://www.hp.com/PC/REST/API">
+    <PostRunAction>Do Not Collate</PostRunAction>
+    <TestID>2</TestID>
+    <TestInstanceID>1</TestInstanceID>
+    <TimeslotDuration>
+      <Hours>0</Hours>
+      <Minutes>30</Minutes>
+    </TimeslotDuration>
+    <VudsMode>false</VudsMode>
+</Run>
