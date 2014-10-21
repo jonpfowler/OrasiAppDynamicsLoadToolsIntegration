@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Xml;
 
+
 namespace ConsoleApplication2
 {
     class Program
@@ -88,7 +89,7 @@ namespace ConsoleApplication2
             Console.WriteLine("{0} Help", fn);
             Console.WriteLine();
 
-            Console.WriteLine("Parameters (Connect):");
+            Console.WriteLine("Parameters (Connect): ");
             Console.WriteLine("/BaseUrl <Base Url> (Default = {0})", BaseUrl);
             Console.WriteLine("/LoadUrl <Load Url> (Default = {0})", LoadUrl);
             Console.WriteLine("/Credentials <username:password> (Default = {0})", CredentialsExample);
