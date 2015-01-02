@@ -1,0 +1,6 @@
+﻿//PerformanceCounterCategory, help string, sample rate in seconds
+MyPerfCountersSample2, my counter description, 1
+
+//CounterName, type, help string, minimum, maximum, variance
+Counter1, NumberOfItems64, help string1, 0, 100, 10
+Counter2, NumberOfItems64, help string2, 0, 100, 5
