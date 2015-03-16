@@ -8,7 +8,10 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Xml;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 46a433cc33f328ba2271822b8b7d4632ed9b3798
 namespace ConsoleApplication2
 {
     class Program
@@ -89,7 +92,11 @@ namespace ConsoleApplication2
             Console.WriteLine("{0} Help", fn);
             Console.WriteLine();
 
+<<<<<<< HEAD
             Console.WriteLine("Parameters (Connect): ");
+=======
+            Console.WriteLine("Parameters (Connect):");
+>>>>>>> 46a433cc33f328ba2271822b8b7d4632ed9b3798
             Console.WriteLine("/BaseUrl <Base Url> (Default = {0})", BaseUrl);
             Console.WriteLine("/LoadUrl <Load Url> (Default = {0})", LoadUrl);
             Console.WriteLine("/Credentials <username:password> (Default = {0})", CredentialsExample);
