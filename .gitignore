@@ -1,0 +1,8 @@
+OrasiPerformanceCounterUtilityUnitTests/obj/
+OrasiPerformanceCounterUtilityConsole/obj/
+*.tlog
+*.metagen
+*.exp
+*.opensdf
+OrasiPerformanceCounterUtility/obj/Release/OrasiPerformanceCounterUtility.csproj.FileListAbsolute.txt
+OrasiPerformanceCounterUtilityConsole/bin/Release/OrasiPerformanceCounterUtilityConsole.exe.config
