@@ -1,0 +1,9 @@
+-+
+-DCCI
+-D_IDA_XL
+-DWINNT
+-IC:\Users\Jon\Documents\VuGen\Scripts\Win32DllCLRInterop
+-IC:\Program Files (x86)\HP\LoadRunner\include
+-ec:\users\jon\documents\vugen\scripts\win32dllclrinterop\\logfile.log
+c:\users\jon\documents\vugen\scripts\win32dllclrinterop\\combined_Win32DllCLRInterop.c
+c:\users\jon\documents\vugen\scripts\win32dllclrinterop\\pre_cci.c
