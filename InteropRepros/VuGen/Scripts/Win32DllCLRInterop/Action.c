@@ -2,6 +2,9 @@ Action()
 {
 	ExportStdNoParm();
 	
+	ExportStdInt1ParamNoCall(1);
+	ExportStdInt2Param2NoCall(1, 2);
+	
 	ExportStdStr1ParamNoCall("mystring1");
 	
 	ExportStdStr1Param("mystring1");

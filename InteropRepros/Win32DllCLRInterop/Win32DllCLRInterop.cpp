@@ -12,6 +12,9 @@ using namespace System;
 using namespace std;
 using namespace ClrTestApp;
 
+extern void CallStdInt1ParamNoCall(int stdInt1);
+extern void CallStdInt2ParamsNoCall(int stdInt1, int stdInt2);
+
 extern void CallStdStr1Param(string stdString1);
 extern void CallStdStr2Params(string stdString1, string stdString2);
 
@@ -28,6 +31,19 @@ extern "C"
 {
 	__declspec(dllexport) void ExportStdNoParm()
 	{
+	}
+
+	__declspec(dllexport) void ExportStdInt1ParamNoCall(int stdInt1)
+	{
+		cout << "ExportStdInt1ParamNoCall begin" << stdInt1 << endl;
+		CallStdInt1ParamNoCall(stdInt1);
+	}
+
+	__declspec(dllexport) void ExportStdInt2Param2NoCall(int stdInt1, int stdInt2)
+	{
+		cout << "ExportStdInt2Param2NoCall begin" << stdInt1 << endl;
+		cout << "ExportStdInt2Param2NoCall begin" << stdInt2 << endl;
+		CallStdInt2ParamsNoCall(stdInt1, stdInt2);
 	}
 
 	__declspec(dllexport) void ExportStdStr1ParamNoCall(string string1)
@@ -49,6 +65,15 @@ extern "C"
 
 void CallStdStr1ParamNoCall(string stdString1){
 	//StdStr1ParamNoCall(stdString1); // call to the function written in C#
+}
+
+void CallStdInt1ParamNoCall(int int1){
+	//StdInt1Param(stdInt1); // call to the function written in C#
+}
+
+void CallStdInt2ParamsNoCall(int stdInt1, int stdInt2)
+{
+
 }
 
 void CallStdStr1Param(string stdString1){

@@ -1,4 +1,4 @@
-# 1 "c:\\users\\jon\\documents\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c"
+# 1 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\interoprepros\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c"
 # 1 "C:\\Program Files (x86)\\HP\\LoadRunner\\include/lrun.h" 1
  
  
@@ -925,7 +925,7 @@ int lr_db_getvalue(char * pFirstArg, ...);
 
 
 
-# 1 "c:\\users\\jon\\documents\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
+# 1 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\interoprepros\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
 
 # 1 "C:\\Program Files (x86)\\HP\\LoadRunner\\include/SharedParameter.h" 1
 
@@ -1075,21 +1075,24 @@ extern VTCERR2  lrvtc_noop();
 
 
 
-# 2 "c:\\users\\jon\\documents\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
+# 2 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\interoprepros\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
 
 # 1 "vuser_init.c" 1
 vuser_init()
 {
 	int retval = 0;
-	retval = ci_load_dll(ci_this_context,("C:\\Users\\Jon\\Documents\\Visual Studio 2013\\Projects\\Win32ConsoleCLRInterop\\Release\\Win32DllCLRInterop.dll"));  
+	retval = ci_load_dll(ci_this_context,("C:\\sources\\github\\OrasiAppDynamicsLoadToolsIntegration\\InteropRepros\\Release\\Win32DllCLRInterop.dll"));  
 	return 0;
 }
-# 3 "c:\\users\\jon\\documents\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
+# 3 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\interoprepros\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
 
 # 1 "Action.c" 1
 Action()
 {
 	ExportStdNoParm();
+	
+	ExportStdInt1ParamNoCall(1);
+	ExportStdInt2Param2NoCall(1, 2);
 	
 	ExportStdStr1ParamNoCall("mystring1");
 	
@@ -1099,12 +1102,12 @@ Action()
 	
 	return 0;
 }
-# 4 "c:\\users\\jon\\documents\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
+# 4 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\interoprepros\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
 
 # 1 "vuser_end.c" 1
 vuser_end()
 {
 	return 0;
 }
-# 5 "c:\\users\\jon\\documents\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
+# 5 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\interoprepros\\vugen\\scripts\\win32dllclrinterop\\\\combined_Win32DllCLRInterop.c" 2
 
