@@ -28,6 +28,7 @@
     <FileEntry Name="UserTasks.xml" Filter="1" />
     <FileEntry Name="Win32DllCLRInterop.c.pickle" Filter="1" />
     <FileEntry Name="Win32DllCLRInterop.ci" Filter="1" />
+    <FileEntry Name="Win32DllCLRInterop.log" Filter="1" />
     <FileEntry Name="Win32DllCLRInterop.sdf" Filter="1" />
   </GeneralFiles>
 </VugenScriptMetadata>

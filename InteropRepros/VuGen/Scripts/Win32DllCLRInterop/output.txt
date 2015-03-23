@@ -1,10 +1,10 @@
-Virtual User Script started at : 3/23/2015 12:19:20 PM
+Virtual User Script started at : 3/23/2015 1:50:22 PM
 Starting action vuser_init.
 Ending action vuser_init.
 Running Vuser...
 Starting iteration 1.
 Starting action Action.
-Action.c(8): Error: C interpreter run time error: Action.c (8):  Error -- memory violation : Exception ACCESS_VIOLATION received.
+Action.c(14): Error: C interpreter run time error: Action.c (14):  Error -- memory violation : Exception ACCESS_VIOLATION received.
 Ending Vuser...
 Starting action vuser_end.
 Ending action vuser_end.
