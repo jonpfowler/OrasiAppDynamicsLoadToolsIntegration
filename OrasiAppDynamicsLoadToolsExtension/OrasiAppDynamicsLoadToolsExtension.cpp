@@ -12,43 +12,44 @@ using namespace System;
 using namespace std;
 using namespace OrasiPerformanceCounterUtility;
 
-extern void CallIncrementCounter(String^);
-extern void CallResetCounter(String^);
-extern void CallDeleteCounterCategory(String^);
+extern void CallIncrementCounter(string);
+extern void CallResetCounter(string);
+extern void CallDeleteCounterCategory(string);
 
 extern "C"
 {
-	__declspec(dllexport) void IncrementCounter(string counterPath)
+	__declspec(dllexport) void IncrementCounter(const char * counterPath)
 	{
-		String^ clrCounterPath = gcnew String(counterPath.c_str());
-
-		CallIncrementCounter(clrCounterPath);
+		CallIncrementCounter(counterPath);
 	}
 
-	__declspec(dllexport) void ResetCounter(string counterPath)
+	__declspec(dllexport) void ResetCounter(const char * counterPath)
 	{
-		String^ clrCounterPath = gcnew String(counterPath.c_str());
-
-		CallResetCounter(clrCounterPath);
+		CallResetCounter(counterPath);
 	}
 
-	__declspec(dllexport) void DeleteCounterCategory(string counterPath)
+	__declspec(dllexport) void DeleteCounterCategory(const char * counterPath)
 	{
-		String^ clrCounterPath = gcnew String(counterPath.c_str());
-
-		CallDeleteCounterCategory(clrCounterPath);
+		CallDeleteCounterCategory(counterPath);
 	}
-
 }
 
-void CallIncrementCounter(String^ counterPath){
-	Counter::IncrementCounter(counterPath, 1); // call to the function written in C#
+void CallIncrementCounter(string counterPath)
+{
+	String^ clrCounterPath = gcnew String(counterPath.c_str());
+
+	Counter::IncrementCounter(clrCounterPath, 1); // call to the function written in C#
 }
 
-void CallResetCounter(String^ counterPath){
-	Counter::ResetCounter(counterPath, 0); // call to the function written in C#
+void CallResetCounter(string counterPath)
+{
+	String^ clrCounterPath = gcnew String(counterPath.c_str());
+
+	Counter::ResetCounter(clrCounterPath, 0); // call to the function written in C#
 }
 
-void CallDeleteCounterCategory(String^ counterPath){
-	Counter::DeleteCounterCategory(counterPath); // call to the function written in C#
+void CallDeleteCounterCategory(string counterPath){
+	String^ clrCounterPath = gcnew String(counterPath.c_str());
+
+	Counter::DeleteCounterCategory(clrCounterPath); // call to the function written in C#
 }

@@ -10,13 +10,11 @@ namespace OrasiPerformanceCounterUtility
 
         public static void IncrementCounter(string performanceCounter, int value)
         {
-            //Logger.LoggerInit(myTextListener, @"c:\OrasiPerformanceCounterUtility.log");
             var perfCounter = ParseCounterPath(performanceCounter);
 
             CreatePerformanceCounterCategory(perfCounter.CategoryName, perfCounter.CategoryHelp, perfCounter.CategoryType);
 
             IncrementPerformanceCounter(perfCounter.CategoryName, perfCounter.CounterInstanceName, value);
-            //Logger.LoggerClose(myTextListener);
         }
 
 
@@ -36,24 +34,24 @@ namespace OrasiPerformanceCounterUtility
 
         private static void IncrementPerformanceCounter(string categoryName, string instanceName, int value)
         {
-            Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
-            logger.WriteEntry("IncrementPerformanceCounter begin.", "Info", "OrasiPerformanceCounterUtility");
+            //Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
+            //logger.WriteEntry("IncrementPerformanceCounter begin.", "Info", "OrasiPerformanceCounterUtility");
             
             PerformanceCounter myCounter;
             var CounterNames = GetCounterNames();
             foreach (CounterNameClass counterName in CounterNames)
             {
                 myCounter = new PerformanceCounter(categoryName, counterName.CounterName, instanceName, false);
-                logger.WriteEntry(
-                    string.Format("IncrementBy({0}, {1}, {2}, {3}) begin", categoryName, counterName.CounterName, instanceName, value),
-                    "Info", "OrasiPerformanceCounterUtility");
+                //logger.WriteEntry(
+                //    string.Format("IncrementBy({0}, {1}, {2}, {3}) begin", categoryName, counterName.CounterName, instanceName, value),
+                //    "Info", "OrasiPerformanceCounterUtility");
                 myCounter.IncrementBy(value);
-                logger.WriteEntry(
-                    string.Format("IncrementBy({0}, {1}, {2}, {3}) end", categoryName, counterName.CounterName, instanceName, value),
-                    "Info", "OrasiPerformanceCounterUtility");
+                //logger.WriteEntry(
+                //    string.Format("IncrementBy({0}, {1}, {2}, {3}) end", categoryName, counterName.CounterName, instanceName, value),
+                //    "Info", "OrasiPerformanceCounterUtility");
             }
-            logger.WriteEntry("IncrementPerformanceCounter end.", "Info", "OrasiPerformanceCounterUtility");
-            logger.LoggerClose();
+            //logger.WriteEntry("IncrementPerformanceCounter end.", "Info", "OrasiPerformanceCounterUtility");
+            //logger.LoggerClose();
         }
 
         private static void ResetPerformanceCounter(string categoryName, string instanceName, int value)
@@ -69,8 +67,8 @@ namespace OrasiPerformanceCounterUtility
 
         private static void CreatePerformanceCounterCategory(string categoryName, string categoryHelp, PerformanceCounterCategoryType performanceCounterCategoryType)
         {
-            Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
-            logger.WriteEntry("CreatePerformanceCounterCategory begin.", "Info", "OrasiPerformanceCounterUtility");
+            //Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
+            //logger.WriteEntry("CreatePerformanceCounterCategory begin.", "Info", "OrasiPerformanceCounterUtility");
 
             if (!PerformanceCounterCategory.Exists(categoryName))
             {
@@ -88,20 +86,21 @@ namespace OrasiPerformanceCounterUtility
                     counterData.Add(counter);
                 }
 
-                logger.WriteEntry(
-                    string.Format("PerformanceCounterCategory.Create(({0}, {1}) begin", categoryName, categoryHelp),
-                    "Info", "OrasiPerformanceCounterUtility");
+                //logger.WriteEntry(
+                //    string.Format("PerformanceCounterCategory.Create(({0}, {1}) begin", categoryName, categoryHelp),
+                //    "Info", "OrasiPerformanceCounterUtility");
 
                 // Create the category and pass the collection to it.
                 PerformanceCounterCategory.Create(categoryName, categoryHelp, performanceCounterCategoryType, counterData);
 
-                logger.WriteEntry(
-                    string.Format("PerformanceCounterCategory.Create(({0}, {1}) end", categoryName, categoryHelp),
-                    "Info", "OrasiPerformanceCounterUtility");
+                //logger.WriteEntry(
+                //    string.Format("PerformanceCounterCategory.Create(({0}, {1}) end", categoryName, categoryHelp),
+                //    "Info", "OrasiPerformanceCounterUtility");
 
             }
-            logger.WriteEntry("CreatePerformanceCounterCategory end.", "Info", "OrasiPerformanceCounterUtility");
-            logger.LoggerClose();
+
+            //logger.WriteEntry("CreatePerformanceCounterCategory end.", "Info", "OrasiPerformanceCounterUtility");
+            //logger.LoggerClose();
         }
         
         private static void DeletePerformanceCounterCategory(string categoryName)

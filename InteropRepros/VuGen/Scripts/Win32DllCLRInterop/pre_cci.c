@@ -1089,12 +1089,14 @@ vuser_init()
 # 1 "Action.c" 1
 Action()
 {
-	char * charptr1 = "charptr";
+	const char * charptr1 = "charptr1";
+	const char * charptr2 = "charptr2";
 	 
 	 
 	 
 	
-	ExportStdNoParm();
+	ExportStdNoParm(charptr1, charptr2);
+	ExportStdNoParm("asdfaasdf asdfasdf asdfasfasdfasdfasdf", "!@341234 1241 2341234 12341 2341234`123412 341234");
 	
 	ExportStdInt1ParamNoCall(1);
 	ExportStdInt2Param2NoCall(1, 2);
