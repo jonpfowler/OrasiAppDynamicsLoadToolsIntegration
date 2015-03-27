@@ -12,86 +12,86 @@ namespace OrasiPerformanceCounterUtility
         {
             var perfCounter = ParseCounterPath(performanceCounter);
 
-            CreatePerformanceCounterCategory(perfCounter.CategoryName, perfCounter.CategoryHelp, perfCounter.CategoryType);
+            CreatePerformanceCounterCategory(perfCounter);
 
-            IncrementPerformanceCounter(perfCounter.CategoryName, perfCounter.CounterInstanceName, value);
+            IncrementPerformanceCounter(perfCounter, value);
         }
 
 
         public static void ResetCounter(string performanceCounter, int value)
         {
             var perfCounter = ParseCounterPath(performanceCounter);
-            CreatePerformanceCounterCategory(perfCounter.CategoryName, perfCounter.CategoryHelp, perfCounter.CategoryType);
+            CreatePerformanceCounterCategory(perfCounter);
 
-            ResetPerformanceCounter(perfCounter.CategoryName, perfCounter.CounterInstanceName, value);
+            ResetPerformanceCounter(perfCounter, value);
         }
 
         public static void DeleteCounterCategory(string performanceCounter)
         {
             var perfCounter = ParseCounterPath(performanceCounter);
-            DeletePerformanceCounterCategory(perfCounter.CategoryName);
+            DeletePerformanceCounterCategory(perfCounter);
         }
 
-        private static void IncrementPerformanceCounter(string categoryName, string instanceName, int value)
+        private static void IncrementPerformanceCounter(PerfCounter perfCounter, int value)
         {
-            //Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
-            //logger.WriteEntry("IncrementPerformanceCounter begin.", "Info", "OrasiPerformanceCounterUtility");
-            
             PerformanceCounter myCounter;
-            var CounterNames = GetCounterNames();
-            foreach (CounterNameClass counterName in CounterNames)
-            {
-                myCounter = new PerformanceCounter(categoryName, counterName.CounterName, instanceName, false);
-                //logger.WriteEntry(
-                //    string.Format("IncrementBy({0}, {1}, {2}, {3}) begin", categoryName, counterName.CounterName, instanceName, value),
-                //    "Info", "OrasiPerformanceCounterUtility");
-                myCounter.IncrementBy(value);
-                //logger.WriteEntry(
-                //    string.Format("IncrementBy({0}, {1}, {2}, {3}) end", categoryName, counterName.CounterName, instanceName, value),
-                //    "Info", "OrasiPerformanceCounterUtility");
-            }
-            //logger.WriteEntry("IncrementPerformanceCounter end.", "Info", "OrasiPerformanceCounterUtility");
-            //logger.LoggerClose();
+            //var CounterNames = GetCounterNames();
+            //foreach (CounterNameClass counterName in CounterNames)
+            //{
+            //    myCounter = new PerformanceCounter(categoryName, counterName.CounterName, instanceName, false);
+            //    myCounter.IncrementBy(value);
+            //}
+            myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, false);
+            myCounter.IncrementBy(value);
         }
 
-        private static void ResetPerformanceCounter(string categoryName, string instanceName, int value)
+        private static void ResetPerformanceCounter(PerfCounter perfCounter, int value)
+        //string categoryName, string instanceName, int value)
         {
             PerformanceCounter myCounter;
-            var CounterNames = GetCounterNames();
-            foreach (CounterNameClass counterName in CounterNames)
-            {
-                myCounter = new PerformanceCounter(categoryName, counterName.CounterName, instanceName, false);
+            //var CounterNames = GetCounterNames();
+            //foreach (CounterNameClass counterName in CounterNames)
+            //{
+                myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, false);
                 myCounter.RawValue = value;
-            }
+            //}
         }
 
-        private static void CreatePerformanceCounterCategory(string categoryName, string categoryHelp, PerformanceCounterCategoryType performanceCounterCategoryType)
+        private static void CreatePerformanceCounterCategory(PerfCounter perfCounter)
+        //string categoryName, string categoryHelp, PerformanceCounterCategoryType performanceCounterCategoryType)
         {
             //Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
             //logger.WriteEntry("CreatePerformanceCounterCategory begin.", "Info", "OrasiPerformanceCounterUtility");
 
-            if (!PerformanceCounterCategory.Exists(categoryName))
+            if (!PerformanceCounterCategory.Exists(perfCounter.CategoryName))
             {
                 CounterCreationDataCollection counterData = new CounterCreationDataCollection();
                 CounterCreationData counter;
 
-                var CounterNames = GetCounterNames();
-                foreach(CounterNameClass counterName in CounterNames)
-                {
-                    // Create a collection of type CounterCreationDataCollection.
-                    counter = new CounterCreationData();
-                    counter.CounterName = counterName.CounterName;
-                    counter.CounterType = counterName.CounterType;
-                    counter.CounterHelp = counterName.CounterHelp;
-                    counterData.Add(counter);
-                }
+                counter = new CounterCreationData();
+                counter.CounterName = perfCounter.CounterName;
+                counter.CounterType = perfCounter.CounterType;
+                counter.CounterHelp = perfCounter.CounterHelp;
+                counterData.Add(counter);
+
+                //var CounterNames = GetCounterNames();
+                //foreach(CounterNameClass counterName in CounterNames)
+                //{
+                //    // Create a collection of type CounterCreationDataCollection.
+                //    counter = new CounterCreationData();
+                //    counter.CounterName = counterName.CounterName;
+                //    counter.CounterType = counterName.CounterType;
+                //    counter.CounterHelp = counterName.CounterHelp;
+                //    counterData.Add(counter);
+                //}
+
 
                 //logger.WriteEntry(
                 //    string.Format("PerformanceCounterCategory.Create(({0}, {1}) begin", categoryName, categoryHelp),
                 //    "Info", "OrasiPerformanceCounterUtility");
 
                 // Create the category and pass the collection to it.
-                PerformanceCounterCategory.Create(categoryName, categoryHelp, performanceCounterCategoryType, counterData);
+                PerformanceCounterCategory.Create(perfCounter.CategoryName, perfCounter.CategoryHelp, perfCounter.CategoryType, counterData);
 
                 //logger.WriteEntry(
                 //    string.Format("PerformanceCounterCategory.Create(({0}, {1}) end", categoryName, categoryHelp),
@@ -103,11 +103,11 @@ namespace OrasiPerformanceCounterUtility
             //logger.LoggerClose();
         }
         
-        private static void DeletePerformanceCounterCategory(string categoryName)
+        private static void DeletePerformanceCounterCategory(PerfCounter perfCounter)
         {
-            if (PerformanceCounterCategory.Exists(categoryName))
+            if (PerformanceCounterCategory.Exists(perfCounter.CategoryName))
             {
-                PerformanceCounterCategory.Delete(categoryName);
+                PerformanceCounterCategory.Delete(perfCounter.CategoryName);
             }
         }
 
@@ -132,7 +132,7 @@ namespace OrasiPerformanceCounterUtility
             perfCounter.CategoryName = perfCounterParts[0]
                 .Split(new char[] { '(' }, StringSplitOptions.RemoveEmptyEntries)[0];
 
-            if (perfCounterParts[0].Contains("(") || perfCounterParts[0].Contains(")"))
+            if (perfCounterParts[0].Contains("(") && perfCounterParts[0].Contains(")"))
             {
                 //InstanceName
                 perfCounter.CounterInstanceName = perfCounterParts[0]
@@ -146,7 +146,34 @@ namespace OrasiPerformanceCounterUtility
                 {
                     perfCounter.CounterInstanceName = perfCounter.CounterInstanceName.Replace("<computername>", System.Net.Dns.GetHostName());
                 }
+
+                if (perfCounterParts.Length == 2)
+                {
+                    perfCounter.CounterName = perfCounterParts[1];
+                    switch (perfCounter.CounterName.ToLower())
+                    {
+                        case "numberofitems":
+                        case "count":
+                            perfCounter.CounterType = PerformanceCounterType.NumberOfItems32;
+                            break;
+                        case "rateofcountspersecond":
+                        case "rate/sec":
+                            perfCounter.CounterType = PerformanceCounterType.RateOfCountsPerSecond32;
+                            break;
+                        case "averagetimer":
+                        case "average":
+                            perfCounter.CounterType = PerformanceCounterType.AverageTimer32;
+                            break;
+                        default:
+                            throw new Exception(string.Format("Counter name : \"{0}\" not understood. Please use \"Count\", \"Rate/Sec\", or \"Average\".", perfCounter.CounterName));
+                    }
+                }
+                else
+                {
+                    throw new Exception(string.Format("Counter instance \"{0}\" provided but name not specified.", perfCounter.CounterInstanceName));
+                }
             }
+
             //Both of these are hard coded
             perfCounter.CategoryHelp = "OrasiPerformanceCounterUtility Category.";
             perfCounter.CategoryType = PerformanceCounterCategoryType.MultiInstance;
@@ -154,13 +181,14 @@ namespace OrasiPerformanceCounterUtility
             return perfCounter;
         }
 
-        private static List<CounterNameClass> GetCounterNames()
-        {
-            return new List<CounterNameClass> {
-                new CounterNameClass("Count", "OrasiPerformanceCounterUtility Count.", PerformanceCounterType.NumberOfItems32) ,
-                new CounterNameClass("Rate/Sec", "OrasiPerformanceCounterUtility Rate/Sec.", PerformanceCounterType.RateOfCountsPerSecond32)
-            };
-        }
+        //private static List<CounterNameClass> GetCounterNames()
+        //{
+        //    return new List<CounterNameClass> {
+        //        new CounterNameClass("Count", "OrasiPerformanceCounterUtility Count.", PerformanceCounterType.NumberOfItems32) ,
+        //        new CounterNameClass("Rate/Sec", "OrasiPerformanceCounterUtility Rate/Sec.", PerformanceCounterType.RateOfCountsPerSecond32), 
+        //        new CounterNameClass("Average", "OrasiPerformanceCounterUtility Average Timer.", PerformanceCounterType.AverageTimer32)
+        //    };
+        //}
 
     }//class
 
@@ -169,14 +197,19 @@ namespace OrasiPerformanceCounterUtility
         public string CategoryName { get; set; }
         public string CategoryHelp { get; set; }
         public PerformanceCounterCategoryType CategoryType { get; set; }
+        public string CounterName { get; set; }
+        public PerformanceCounterType CounterType { get; set; }
+        public string CounterHelp { get; set; }
+
         public string CounterInstanceName { get; set; }
 
         public PerfCounter() { }
-        public PerfCounter(string categoryName, string categoryHelp, PerformanceCounterCategoryType categoryType, string counterInstanceName)
+        public PerfCounter(string categoryName, string categoryHelp, PerformanceCounterCategoryType categoryType, string counterName, string counterInstanceName)
         {
             CategoryName = categoryName;
             CategoryHelp = categoryHelp;
             CategoryType = categoryType;
+            CounterName = counterName;
             CounterInstanceName = counterInstanceName;
         }
     }//class

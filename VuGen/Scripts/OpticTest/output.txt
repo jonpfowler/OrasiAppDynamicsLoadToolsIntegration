@@ -1,0 +1,8 @@
+Virtual User Script started at : 3/26/2015 9:27:38 PM
+Starting action vuser_init.
+Ending action vuser_init.
+Running Vuser...
+Starting iteration 1.
+Starting action Action.
+Action.c(6): Notify: Transaction "MyTransactionName" started.
+trans_time: -1930742418
