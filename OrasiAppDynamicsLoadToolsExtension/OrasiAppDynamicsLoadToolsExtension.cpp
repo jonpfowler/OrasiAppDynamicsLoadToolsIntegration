@@ -12,20 +12,20 @@ using namespace System;
 using namespace std;
 using namespace OrasiPerformanceCounterUtility;
 
-extern void CallIncrementCounter(string);
-extern void CallResetCounter(string);
+extern void CallIncrementCounter(string, int);
+extern void CallResetCounter(string, int);
 extern void CallDeleteCounterCategory(string);
 
 extern "C"
 {
-	__declspec(dllexport) void IncrementCounter(const char * counterPath)
+	__declspec(dllexport) void IncrementCounter(const char * counterPath, int value)
 	{
-		CallIncrementCounter(counterPath);
+		CallIncrementCounter(counterPath, value);
 	}
 
-	__declspec(dllexport) void ResetCounter(const char * counterPath)
+	__declspec(dllexport) void ResetCounter(const char * counterPath, int value)
 	{
-		CallResetCounter(counterPath);
+		CallResetCounter(counterPath, value);
 	}
 
 	__declspec(dllexport) void DeleteCounterCategory(const char * counterPath)
@@ -34,22 +34,22 @@ extern "C"
 	}
 }
 
-void CallIncrementCounter(string counterPath)
+void CallIncrementCounter(string counterPath, int value)
 {
 	String^ clrCounterPath = gcnew String(counterPath.c_str());
 
-	Counter::IncrementCounter(clrCounterPath, 1); // call to the function written in C#
+	Counter::IncrementCounter(clrCounterPath, value);
 }
 
-void CallResetCounter(string counterPath)
+void CallResetCounter(string counterPath, int value)
 {
 	String^ clrCounterPath = gcnew String(counterPath.c_str());
 
-	Counter::ResetCounter(clrCounterPath, 0); // call to the function written in C#
+	Counter::ResetCounter(clrCounterPath, value);
 }
 
 void CallDeleteCounterCategory(string counterPath){
 	String^ clrCounterPath = gcnew String(counterPath.c_str());
 
-	Counter::DeleteCounterCategory(clrCounterPath); // call to the function written in C#
+	Counter::DeleteCounterCategory(clrCounterPath);
 }
