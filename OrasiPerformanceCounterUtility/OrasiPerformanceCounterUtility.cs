@@ -8,7 +8,7 @@ namespace OrasiPerformanceCounterUtility
     public static class Counter
     {
 
-        public static void IncrementCounter(string performanceCounter, int value)
+        public static void IncrementCounter(string performanceCounter, double value)
         {
             var perfCounter = ParseCounterPath(performanceCounter);
 
@@ -32,7 +32,7 @@ namespace OrasiPerformanceCounterUtility
             DeletePerformanceCounterCategory(perfCounter);
         }
 
-        private static void IncrementPerformanceCounter(PerfCounter perfCounter, int value)
+        private static void IncrementPerformanceCounter(PerfCounter perfCounter, double value)
         {
             PerformanceCounter myCounter;
             //var CounterNames = GetCounterNames();
@@ -42,23 +42,22 @@ namespace OrasiPerformanceCounterUtility
             //    myCounter.IncrementBy(value);
             //}
             myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, false);
-            myCounter.IncrementBy(value);
+            //myCounter.IncrementBy(value);
+            //myCounter.
         }
 
         private static void ResetPerformanceCounter(PerfCounter perfCounter, int value)
-        //string categoryName, string instanceName, int value)
         {
-            PerformanceCounter myCounter;
-            //var CounterNames = GetCounterNames();
-            //foreach (CounterNameClass counterName in CounterNames)
-            //{
-                myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, false);
-                myCounter.RawValue = value;
-            //}
+            PerformanceCounter myCounter = 
+                new PerformanceCounter(
+                    perfCounter.CategoryName,
+                    perfCounter.CounterName,
+                    perfCounter.CounterInstanceName,
+                    false);
+            myCounter.RawValue = value;
         }
 
         private static void CreatePerformanceCounterCategory(PerfCounter perfCounter)
-        //string categoryName, string categoryHelp, PerformanceCounterCategoryType performanceCounterCategoryType)
         {
             //Logger logger = new Logger(@"OrasiPerformanceCounterUtility.log");
             //logger.WriteEntry("CreatePerformanceCounterCategory begin.", "Info", "OrasiPerformanceCounterUtility");
@@ -74,28 +73,8 @@ namespace OrasiPerformanceCounterUtility
                 counter.CounterHelp = perfCounter.CounterHelp;
                 counterData.Add(counter);
 
-                //var CounterNames = GetCounterNames();
-                //foreach(CounterNameClass counterName in CounterNames)
-                //{
-                //    // Create a collection of type CounterCreationDataCollection.
-                //    counter = new CounterCreationData();
-                //    counter.CounterName = counterName.CounterName;
-                //    counter.CounterType = counterName.CounterType;
-                //    counter.CounterHelp = counterName.CounterHelp;
-                //    counterData.Add(counter);
-                //}
-
-
-                //logger.WriteEntry(
-                //    string.Format("PerformanceCounterCategory.Create(({0}, {1}) begin", categoryName, categoryHelp),
-                //    "Info", "OrasiPerformanceCounterUtility");
-
                 // Create the category and pass the collection to it.
                 PerformanceCounterCategory.Create(perfCounter.CategoryName, perfCounter.CategoryHelp, perfCounter.CategoryType, counterData);
-
-                //logger.WriteEntry(
-                //    string.Format("PerformanceCounterCategory.Create(({0}, {1}) end", categoryName, categoryHelp),
-                //    "Info", "OrasiPerformanceCounterUtility");
 
             }
 
@@ -175,7 +154,8 @@ namespace OrasiPerformanceCounterUtility
             }
 
             //Both of these are hard coded
-            perfCounter.CategoryHelp = "OrasiPerformanceCounterUtility Category.";
+            perfCounter.CounterHelp = "OrasiPerformanceCounterUtility Counter help.";
+            perfCounter.CategoryHelp = "OrasiPerformanceCounterUtility Category help.";
             perfCounter.CategoryType = PerformanceCounterCategoryType.MultiInstance;
 
             return perfCounter;

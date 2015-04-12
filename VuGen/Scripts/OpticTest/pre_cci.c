@@ -1082,7 +1082,7 @@ vuser_init()
 {
 	int retval = 0;
 	retval = ci_load_dll(ci_this_context,("C:\\sources\\github\\OrasiAppDynamicsLoadToolsIntegration\\Release\\OrasiAppDynamicsLoadToolsExtension.dll"));
-    IncrementCounter("LoadRunner(VUsers)\\Count", 1);	
+    IncrementCounter("LoadRunner(VUsers)\\Count", 1);
 	return 0;
 }
 # 3 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\vugen\\scripts\\optictest\\\\combined_Optic.c" 2
@@ -1100,7 +1100,7 @@ Action()
 	 
 
 	IncrementCounter("LoadRunner(MyTransactionName)\\Rate/Sec", 1);	
-	IncrementCounter("LoadRunner(MyTransactionName)\\Averagex", trans_time);	
+	IncrementCounter("LoadRunner(MyTransactionName)\\Average", trans_time);
 	lr_end_transaction("MyTransactionName", 2);
 
 	return 0;

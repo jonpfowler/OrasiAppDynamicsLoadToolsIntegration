@@ -10,7 +10,7 @@ Action()
 	//lr_rendezvous("");
 
 	IncrementCounter("LoadRunner(MyTransactionName)\\Rate/Sec", 1);	
-	IncrementCounter("LoadRunner(MyTransactionName)\\Averagex", trans_time);	
+	IncrementCounter("LoadRunner(MyTransactionName)\\Average", trans_time);
 	lr_end_transaction("MyTransactionName", LR_AUTO);
 
 	return 0;
