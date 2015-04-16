@@ -1,5 +1,5 @@
 vuser_end()
 {
-    IncrementCounter("LoadRunner(VUsers)\\Count", -1);	
+    IncrementCounter("PRLoadRunner2(VUsers)\\Count", -1);	
 	return 0;
 }

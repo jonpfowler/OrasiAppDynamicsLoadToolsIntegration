@@ -1,3 +1,4 @@
 ﻿<Properties>
-  <WatchEntry0 value="trans_time" />
+  <WatchEntry0 value="counterValue" />
+  <WatchEntry1 value="trans_time" />
 </Properties>

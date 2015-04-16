@@ -15,6 +15,7 @@ using namespace OrasiPerformanceCounterUtility;
 extern void CallIncrementCounter(string, int);
 extern void CallResetCounter(string, int);
 extern void CallDeleteCounterCategory(string);
+extern long CallGetCounter(string);
 
 extern "C"
 {
@@ -32,6 +33,11 @@ extern "C"
 	{
 		CallDeleteCounterCategory(counterPath);
 	}
+
+	__declspec(dllexport) long GetCounter(const char * counterPath)
+	{
+		return CallGetCounter(counterPath);
+	}
 }
 
 void CallIncrementCounter(string counterPath, int value)
@@ -46,6 +52,13 @@ void CallResetCounter(string counterPath, int value)
 	String^ clrCounterPath = gcnew String(counterPath.c_str());
 
 	Counter::ResetCounter(clrCounterPath, value);
+}
+
+long CallGetCounter(string counterPath)
+{
+	String^ clrCounterPath = gcnew String(counterPath.c_str());
+	long value = Counter::GetCounter(clrCounterPath);
+	return value;
 }
 
 void CallDeleteCounterCategory(string counterPath){

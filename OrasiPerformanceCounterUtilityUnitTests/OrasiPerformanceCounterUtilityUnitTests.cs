@@ -44,12 +44,12 @@ namespace PerformanceCounterUtilityUnitTests
         {
             try
             {
-                Counter.ResetCounter(@"HP LoadRunner Performance(MyWebService)Transactions/Second", 0);
+                Counter.ResetCounter(@"HP LoadRunner Performance(MyWebService)\Transactions/Second", 0);
             }
             catch (Exception e)
             {
                 string strExpectedMessage = "Counter name : \"Transactions/Second\" not understood. Please use \"Count\", \"Rate/Sec\", or \"Average\".";
-                Assert.AreNotSame(e.Message, strExpectedMessage, "Expected error not found.");
+                Assert.AreEqual(e.Message, strExpectedMessage, "Expected error not found.");
             }
         }
 
@@ -58,6 +58,34 @@ namespace PerformanceCounterUtilityUnitTests
         {
             Counter.IncrementCounter(@"HP LoadRunner Performance(MyWebService)\Count", 1);
         }
+
+        [TestMethod]
+        public void GetCounter1()
+        {
+            Counter.ResetCounter(@"HP LoadRunner Performance(MyWebService)\Count", 0);
+            int expected = 3;
+            int counter;
+            for (counter = 0; counter < expected; counter++)
+            {
+                Counter.IncrementCounter(@"HP LoadRunner Performance(MyWebService)\Count", 1);
+            }
+            long returned = Counter.GetCounter(@"HP LoadRunner Performance(MyWebService)\Count");
+            Assert.AreEqual(counter, returned, string.Format("Values not equal: {0} != {1}", counter, returned));
+        }
+
+        [TestMethod]
+        public void GetCounter2()
+        {
+            double d = 1.1234512451245135;
+            float f = (float)d;
+            long l = (long)f;
+            System.Single s = (float)d;
+
+            long returned = Counter.GetCounter(@"Processor Information(_Total)\% Processor Time");
+            returned = Counter.GetCounter(@"Process(services)\Handle Count");
+            Assert.AreNotEqual(0, returned, string.Format("Values not equal: {0} != {1}", 0, returned));
+        }
+
         [TestMethod]
         public void IncrementCounterInstance1()
         {
@@ -77,6 +105,20 @@ namespace PerformanceCounterUtilityUnitTests
         public void IncrementCounterInstance4()
         {
             Counter.IncrementCounter(@"HP LoadRunner Performance(MyWebService 4)\Count", 1);
+        }
+
+        [TestMethod]
+        public void IncrementRateCounter1()
+        {
+            int counter = 1;
+            int iterations = 10;
+            int iterator;
+            for (iterator = 0; iterator < iterations; iterator++)
+            {
+                Counter.IncrementCounter(@"HP LoadRunner Performance(MyWebService)\Rate/Sec", 1);
+            }
+            long returned = Counter.GetCounter(@"HP LoadRunner Performance(MyWebService)\Rate/Sec");
+            Assert.AreEqual(counter, returned, string.Format("Values not equal: {0} != {1}", counter, returned));
         }
 
         [TestMethod]
