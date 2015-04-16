@@ -10,41 +10,60 @@ namespace OrasiPerformanceCounterUtility
 
         public static void IncrementCounter(string performanceCounter, double value)
         {
-            var perfCounter = ParseCounterPath(performanceCounter);
-
+            var perfCounter = ParseCounterPath(performanceCounter, true);
             CreatePerformanceCounterCategory(perfCounter);
-
             IncrementPerformanceCounter(perfCounter, value);
         }
 
 
         public static void ResetCounter(string performanceCounter, int value)
         {
-            var perfCounter = ParseCounterPath(performanceCounter);
+            var perfCounter = ParseCounterPath(performanceCounter, true);
             CreatePerformanceCounterCategory(perfCounter);
-
             ResetPerformanceCounter(perfCounter, value);
         }
 
         public static void DeleteCounterCategory(string performanceCounter)
         {
-            var perfCounter = ParseCounterPath(performanceCounter);
+            var perfCounter = ParseCounterPath(performanceCounter, true);
             DeletePerformanceCounterCategory(perfCounter);
+        }
+
+        public static long GetCounter(string performanceCounter)
+        {
+            var perfCounter = ParseCounterPath(performanceCounter, false);
+            return GetPerformanceCounter(perfCounter);
         }
 
         private static void IncrementPerformanceCounter(PerfCounter perfCounter, double value)
         {
             PerformanceCounter myCounter;
-            //var CounterNames = GetCounterNames();
-            //foreach (CounterNameClass counterName in CounterNames)
-            //{
-            //    myCounter = new PerformanceCounter(categoryName, counterName.CounterName, instanceName, false);
-            //    myCounter.IncrementBy(value);
-            //}
             myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, false);
-            //myCounter.IncrementBy(value);
-            //myCounter.
+            myCounter.IncrementBy((long)value);
         }
+
+        private static long GetPerformanceCounter(PerfCounter perfCounter)
+        {
+            PerformanceCounter myCounter;
+            myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, true);
+
+            //CounterSample cs = myCounter.NextSample();
+            //cs.RawValue
+            
+            //Get the value twice, The first iteration of he counter will always be 0, because it has nothing to compare to the last value.
+            float nextValue = 0;
+            for(int i = 0; i < 10; i++)
+            {
+                nextValue = myCounter.NextValue();
+                if(nextValue > 0)
+                {
+                    break;
+                }
+                System.Threading.Thread.Sleep((i + 1)  * 10);
+            }
+            return (long)nextValue; //Losing the decimal place here, but havent figured out how to marshall float back to LR
+        }
+
 
         private static void ResetPerformanceCounter(PerfCounter perfCounter, int value)
         {
@@ -66,12 +85,18 @@ namespace OrasiPerformanceCounterUtility
             {
                 CounterCreationDataCollection counterData = new CounterCreationDataCollection();
                 CounterCreationData counter;
-
-                counter = new CounterCreationData();
-                counter.CounterName = perfCounter.CounterName;
-                counter.CounterType = perfCounter.CounterType;
-                counter.CounterHelp = perfCounter.CounterHelp;
-                counterData.Add(counter);
+                
+                //We need to add all possible counter names even if they wont be utilized by the user because once the category is created we can't
+                //go back and add an additional counter.
+                var counterNames = GetCounterNames();
+                foreach (CounterNameClass counterNameClass in counterNames)
+                {
+                    counter = new CounterCreationData();
+                    counter.CounterName = counterNameClass.CounterName;
+                    counter.CounterType = counterNameClass.CounterType;
+                    counter.CounterHelp = counterNameClass.CounterHelp;
+                    counterData.Add(counter);
+                }
 
                 // Create the category and pass the collection to it.
                 PerformanceCounterCategory.Create(perfCounter.CategoryName, perfCounter.CategoryHelp, perfCounter.CategoryType, counterData);
@@ -100,7 +125,7 @@ namespace OrasiPerformanceCounterUtility
         /// "HP LoadRunner Performance(IMH IPMS Web Service)"
         /// "HP LoadRunner Performance(<computername> IMH IPMS Web Service)"
         /// </summary>
-        private static PerfCounter ParseCounterPath(string performanceCounter)
+        private static PerfCounter ParseCounterPath(string performanceCounter, bool restrictCountName)
         {
             var perfCounter = new PerfCounter();
 
@@ -144,7 +169,11 @@ namespace OrasiPerformanceCounterUtility
                             perfCounter.CounterType = PerformanceCounterType.AverageTimer32;
                             break;
                         default:
-                            throw new Exception(string.Format("Counter name : \"{0}\" not understood. Please use \"Count\", \"Rate/Sec\", or \"Average\".", perfCounter.CounterName));
+                            if (restrictCountName)
+                            {
+                                throw new Exception(string.Format("Counter name : \"{0}\" not understood. Please use \"Count\", \"Rate/Sec\", or \"Average\".", perfCounter.CounterName));
+                            }
+                            break;
                     }
                 }
                 else
@@ -161,14 +190,15 @@ namespace OrasiPerformanceCounterUtility
             return perfCounter;
         }
 
-        //private static List<CounterNameClass> GetCounterNames()
-        //{
-        //    return new List<CounterNameClass> {
-        //        new CounterNameClass("Count", "OrasiPerformanceCounterUtility Count.", PerformanceCounterType.NumberOfItems32) ,
-        //        new CounterNameClass("Rate/Sec", "OrasiPerformanceCounterUtility Rate/Sec.", PerformanceCounterType.RateOfCountsPerSecond32), 
-        //        new CounterNameClass("Average", "OrasiPerformanceCounterUtility Average Timer.", PerformanceCounterType.AverageTimer32)
-        //    };
-        //}
+        private static List<CounterNameClass> GetCounterNames()
+        {
+            return new List<CounterNameClass> {
+                new CounterNameClass("Count", "OrasiPerformanceCounterUtility Count.", PerformanceCounterType.NumberOfItems32) ,
+                new CounterNameClass("Rate/Sec", "OrasiPerformanceCounterUtility Rate/Sec.", PerformanceCounterType.RateOfCountsPerSecond32), 
+                new CounterNameClass("Average", "OrasiPerformanceCounterUtility Average Timer.", PerformanceCounterType.AverageTimer32),
+                new CounterNameClass("Average Base", "OrasiPerformanceCounterUtility Average Base.", PerformanceCounterType.AverageBase)
+            };
+        }
 
     }//class
 

@@ -19,17 +19,19 @@
     <FileEntry Name="CompilerLogMetadata.xml" Filter="1" />
     <FileEntry Name="logfile.log" Filter="1" />
     <FileEntry Name="mdrv.log" Filter="1" />
+    <FileEntry Name="mdrvmX1.377.log" Filter="1" />
+    <FileEntry Name="mdrvv4C.961.log" Filter="1" />
     <FileEntry Name="mdrv_cmd.txt" Filter="1" />
     <FileEntry Name="Optic.c.pickle" Filter="1" />
     <FileEntry Name="Optic.ci" Filter="1" />
     <FileEntry Name="Optic.sdf" Filter="1" />
     <FileEntry Name="options.txt" Filter="1" />
-    <FileEntry Name="OrasiPerformanceCounterUtility.log" Filter="1" />
     <FileEntry Name="output.bak" Filter="1" />
     <FileEntry Name="output.txt" Filter="1" />
     <FileEntry Name="ReplaySummaryReport.xml" Filter="1" />
     <FileEntry Name="ThumbnailsCache.tmp" Filter="1" />
     <FileEntry Name="UserTasks.xml" Filter="1" />
     <FileEntry Name="Watches.xml" Filter="1" />
+    <FileEntry Name="res\" Filter="1" />
   </GeneralFiles>
 </VugenScriptMetadata>

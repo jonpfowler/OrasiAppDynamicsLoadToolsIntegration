@@ -1081,8 +1081,20 @@ extern VTCERR2  lrvtc_noop();
 vuser_init()
 {
 	int retval = 0;
+	long counterValue;
+
 	retval = ci_load_dll(ci_this_context,("C:\\sources\\github\\OrasiAppDynamicsLoadToolsIntegration\\Release\\OrasiAppDynamicsLoadToolsExtension.dll"));
-    IncrementCounter("LoadRunner(VUsers)\\Count", 1);
+    IncrementCounter("PRLoadRunner2(VUsers)\\Count", 1);
+
+    counterValue = GetCounter("PRLoadRunner2(VUsers)\\Count");
+   	lr_log_message("PRLoadRunner2(VUsers)\\Count: %d", counterValue);
+
+	counterValue = GetCounter("Processor Information(_Total)\\% Processor Time");
+   	lr_log_message("Processor Information(_Total)\\% Processor Time: %d", counterValue);
+
+ 
+ 
+
 	return 0;
 }
 # 3 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\vugen\\scripts\\optictest\\\\combined_Optic.c" 2
@@ -1091,18 +1103,22 @@ vuser_init()
 Action()
 {
 	double trans_time;
+	long counterValue;
+
 	 
 	 
 	lr_start_transaction("MyTransactionName");
 	trans_time=lr_get_transaction_duration("MyTransactionName");
 	
-	lr_log_message("trans_time: %d", trans_time);
+	lr_log_message("trans_time: %f", trans_time);
 	 
 
-	IncrementCounter("LoadRunner(MyTransactionName)\\Rate/Sec", 1);	
-	IncrementCounter("LoadRunner(MyTransactionName)\\Average", trans_time);
+	IncrementCounter("PRLoadRunner2(MyTransactionName)\\Rate/Sec", 1);	
+	IncrementCounter("PRLoadRunner2(MyTransactionName)\\Average", trans_time);
 	lr_end_transaction("MyTransactionName", 2);
 
+	counterValue = GetCounter("Processor Information(_Total)\\% Processor Time");
+   	lr_log_message("Processor Information(_Total)\\% Processor Time: %d", counterValue);
 	return 0;
 }
 # 4 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\vugen\\scripts\\optictest\\\\combined_Optic.c" 2
@@ -1110,7 +1126,7 @@ Action()
 # 1 "vuser_end.c" 1
 vuser_end()
 {
-    IncrementCounter("LoadRunner(VUsers)\\Count", -1);	
+    IncrementCounter("PRLoadRunner2(VUsers)\\Count", -1);	
 	return 0;
 }
 # 5 "c:\\sources\\github\\orasiappdynamicsloadtoolsintegration\\vugen\\scripts\\optictest\\\\combined_Optic.c" 2

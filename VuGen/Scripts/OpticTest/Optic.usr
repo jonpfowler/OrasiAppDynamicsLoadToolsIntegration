@@ -43,7 +43,7 @@ vuser_end=cci
 [TransactionsOrder]
 Order="MyTransactionName"
 [StateManagement]
-LastReplayStatus=1
+LastReplayStatus=3
 [ActiveReplay]
 LastReplayedRunName=
 ActiveRunName=
