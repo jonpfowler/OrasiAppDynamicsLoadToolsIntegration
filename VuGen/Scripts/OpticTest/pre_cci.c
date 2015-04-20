@@ -1083,7 +1083,7 @@ vuser_init()
 	int retval = 0;
 	long counterValue;
 
-	retval = ci_load_dll(ci_this_context,("C:\\sources\\github\\OrasiAppDynamicsLoadToolsIntegration\\Release\\OrasiAppDynamicsLoadToolsExtension.dll"));
+	retval = ci_load_dll(ci_this_context,("C:\\sources\\github\\OrasiAppDynamicsLoadToolsIntegration\\Release\\Optic.dll"));
     IncrementCounter("PRLoadRunner2(VUsers)\\Count", 1);
 
     counterValue = GetCounter("PRLoadRunner2(VUsers)\\Count");

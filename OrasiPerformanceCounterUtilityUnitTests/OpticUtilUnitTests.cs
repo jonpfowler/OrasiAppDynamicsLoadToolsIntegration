@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OrasiPerformanceCounterUtility;
+using OpticUtil;
 
 namespace PerformanceCounterUtilityUnitTests
 {
     [TestClass]
-    public class OrasiPerformanceCounterUtilityUnitTests
+    public class OpticUtilUnitTests
     {
         [TestMethod]
         public void DeleteCounterCategory_NoInstance()

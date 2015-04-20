@@ -3,7 +3,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
 
-namespace OrasiPerformanceCounterUtility
+namespace OpticUtil
 {
     public static class Counter
     {
@@ -47,6 +47,7 @@ namespace OrasiPerformanceCounterUtility
             PerformanceCounter myCounter;
             myCounter = new PerformanceCounter(perfCounter.CategoryName, perfCounter.CounterName, perfCounter.CounterInstanceName, true);
 
+            //Todo: Find solution to getting counters correctly
             //CounterSample cs = myCounter.NextSample();
             //cs.RawValue
             

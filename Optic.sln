@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrasiPerformanceCounterUtility", "OrasiPerformanceCounterUtility\OrasiPerformanceCounterUtility.csproj", "{4B15D092-9F2C-467D-AE67-000CB2280F45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpticUtil", "OrasiPerformanceCounterUtility\OpticUtil.csproj", "{4B15D092-9F2C-467D-AE67-000CB2280F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrasiPerformanceCounterUtilityUnitTests", "OrasiPerformanceCounterUtilityUnitTests\OrasiPerformanceCounterUtilityUnitTests.csproj", "{955E2D9D-6468-4794-9E78-B32939EBA7E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpticUtilUnitTests", "OrasiPerformanceCounterUtilityUnitTests\OpticUtilUnitTests.csproj", "{955E2D9D-6468-4794-9E78-B32939EBA7E6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OrasiAppDynamicsLoadToolsExtension", "OrasiAppDynamicsLoadToolsExtension\OrasiAppDynamicsLoadToolsExtension.vcxproj", "{484CA424-BAA2-498D-82B5-E8D5E5F34F84}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Optic", "OrasiAppDynamicsLoadToolsExtension\OrasiAppDynamicsLoadToolsExtension.vcxproj", "{484CA424-BAA2-498D-82B5-E8D5E5F34F84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrasiPerformanceCounterUtilityConsole", "OrasiPerformanceCounterUtilityConsole\OrasiPerformanceCounterUtilityConsole.csproj", "{81AECF7D-07FD-4A62-AF2D-FC720B293694}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpticUtilConsole", "OrasiPerformanceCounterUtilityConsole\OpticUtilConsole.csproj", "{81AECF7D-07FD-4A62-AF2D-FC720B293694}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

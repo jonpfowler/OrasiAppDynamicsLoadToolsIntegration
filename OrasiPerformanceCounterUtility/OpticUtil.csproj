@@ -7,8 +7,8 @@
     <ProjectGuid>{4B15D092-9F2C-467D-AE67-000CB2280F45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OrasiPerformanceCounterUtility</RootNamespace>
-    <AssemblyName>OrasiPerformanceCounterUtility</AssemblyName>
+    <RootNamespace>OpticUtil</RootNamespace>
+    <AssemblyName>OpticUtil</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logger.cs" />
-    <Compile Include="OrasiPerformanceCounterUtility.cs" />
+    <Compile Include="OpticUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

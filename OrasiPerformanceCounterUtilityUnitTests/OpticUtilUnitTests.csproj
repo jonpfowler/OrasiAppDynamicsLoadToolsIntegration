@@ -50,13 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="OrasiPerformanceCounterUtilityUnitTests.cs" />
+    <Compile Include="OpticUtilUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OrasiPerformanceCounterUtility\OrasiPerformanceCounterUtility.csproj">
+    <ProjectReference Include="..\OrasiPerformanceCounterUtility\OpticUtil.csproj">
       <Project>{4b15d092-9f2c-467d-ae67-000cb2280f45}</Project>
-      <Name>OrasiPerformanceCounterUtility</Name>
+      <Name>OpticUtil</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

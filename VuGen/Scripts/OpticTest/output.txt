@@ -1,26 +1,10 @@
-Virtual User Script started at : 4/15/2015 7:23:56 PM
+Virtual User Script started at : 4/16/2015 1:24:00 PM
 Starting action vuser_init.
 PRLoadRunner2(VUsers)\Count: 1
-Processor Information(_Total)\Processor Time: 100
+Processor Information(_Total)\Processor Time: 54
 Ending action vuser_init.
 Running Vuser...
 Starting iteration 1.
-Starting action Action.
-Action.c(8): Notify: Transaction "MyTransactionName" started.
-trans_time: 1.329656
-Action.c(16): Notify: Transaction "MyTransactionName" ended with a "Pass" status (Duration: 3.5029).
-Processor Information(_Total)\Processor Time: 37
-Ending action Action.
-Ending iteration 1.
-Starting iteration 2.
-Starting action Action.
-Action.c(8): Notify: Transaction "MyTransactionName" started.
-trans_time: 0.452873
-Action.c(16): Notify: Transaction "MyTransactionName" ended with a "Pass" status (Duration: 1.4051).
-Processor Information(_Total)\Processor Time: 24
-Ending action Action.
-Ending iteration 2.
-Starting iteration 3.
 Starting action Action.
 Abort was called from an action.
 Ending Vuser...

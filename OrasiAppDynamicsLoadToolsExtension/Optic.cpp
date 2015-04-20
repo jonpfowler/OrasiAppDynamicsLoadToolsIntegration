@@ -10,7 +10,7 @@
 
 using namespace System;
 using namespace std;
-using namespace OrasiPerformanceCounterUtility;
+using namespace OpticUtil;
 
 extern void CallIncrementCounter(string, int);
 extern void CallResetCounter(string, int);
